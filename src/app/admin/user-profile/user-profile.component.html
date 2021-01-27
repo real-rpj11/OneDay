@@ -4,6 +4,7 @@
             <th scope="col">Full Name</th>
             <th scope="col">Contact Number</th>
             <th scope="col">Address</th>
+            <th scope="col">Email Address</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
@@ -12,8 +13,9 @@
             <td>{{user.firstname }}{{user.lastname}}</td>
             <th scope="row">{{user.contact_number}}</th>
             <td>{{user.address}}</td>
-            <td><button>Update</button>
-                <button (click)="deleteUser(user)">Delete</button></td>
+            <td>{{user.email_address}}</td>
+            <td><button class="btn btn-primary" (click)="update(user.id)">Update Status</button>
+            <button class="btn btn-danger" style="margin-left:20px;"(click) = "deleteUser(bus.id)">Delete Client</button></td>
         </tr>
     </tbody>
 </table>

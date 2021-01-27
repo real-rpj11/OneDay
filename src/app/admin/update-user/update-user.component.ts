@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { BusesService } from 'src/app/services/buses.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import axios from 'axios';
-import { Router, ActivatedRoute } from '@angular/router';
+import { BusesService } from 'src/app/services/buses.service';
 
 @Component({
-  selector: 'app-update-bus',
-  templateUrl: './update-bus.component.html',
-  styleUrls: ['./update-bus.component.css']
+  selector: 'app-update-user',
+  templateUrl: './update-user.component.html',
+  styleUrls: ['./update-user.component.css']
 })
-export class UpdateBusComponent implements OnInit {
+export class UpdateUserComponent implements OnInit {
 
   form = new FormGroup({
     bus_name: new FormControl(''),
@@ -19,24 +19,27 @@ export class UpdateBusComponent implements OnInit {
     img_url: new FormControl(''),
     status: new FormControl('')
   });
+
  constructor(
     private busesService: BusesService,
     private router : Router,
     private route : ActivatedRoute
     ) { }
 
-  id: any;
+  id:any;
   ngOnInit(): void {
     this.route.paramMap.subscribe(
       params=> {
         this.id = params.get('id');
+        console.log(this.id);
+        
       }
     );
   }
-  updateBus(){
+  update(){
     console.log(this.id);
-    axios.put("https://btal-ride.herokuapp.com/api/admin/bus/"+this.id, this.form.value).then(res => {
-      this.router.navigate(['/admin/dashboard']);
+    axios.put("https://btal-ride.herokuapp.com/api/admin/client/"+this.id, this.form.value).then(res => {
+      this.router.navigate(['/admin/user-profile']);
     }).catch(err => {
       console.log(err)
     })

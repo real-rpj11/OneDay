@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './add-bus.component.html',
   styleUrls: ['./add-bus.component.css']
 })
+
 export class AddBusComponent implements OnInit {
   form = new FormGroup({
     bus_name: new FormControl('',Validators.required),
@@ -29,7 +30,7 @@ export class AddBusComponent implements OnInit {
   addBus(){
     console.log(this.form.value);
     axios.post("https://btal-ride.herokuapp.com/api/admin/bus", this.form.value).then(res => {
-      this.router.navigate(['/admin/buses']);
+      this.router.navigate(['/admin/dashboard']);
     }).catch(err => {
       console.log(err)
     })

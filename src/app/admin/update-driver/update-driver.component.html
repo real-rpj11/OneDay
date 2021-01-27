@@ -1,8 +1,6 @@
-
-<button class="btn btn-primary" type="submit" (click) ="addDriver()">Add Driver</button>
-
-<div id="table" class="container p-5" style="display: none;">
-    <form name="form" [formGroup]="form" (ngSubmit)="addnewDriver()" >
+<div id="table" class="container p-5">
+    <h1>Update Driver:</h1>
+    <form name="form" [formGroup]="form" (ngSubmit)="updateDriver()" >
         <div class="form-row">
             <div class="form-group col-md-6">
                     <label for="firstNnme">First Name: </label>
@@ -39,37 +37,11 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <button type="submit" class="btn btn-secondary form-control">Cancel</button>
+                <a type="button" class="btn btn-secondary form-control" routerLink = "/admin/drivers">Cancel</a>
             </div>
             <div class="form-group col-md-6">
-                <button type="submit" class="btn btn-success form-control">Add Person</button>
+                <button type="submit" class="btn btn-success form-control">Update Driver</button>
             </div>
         </div>
     </form>
     </div>
-
-<table class="table p-3">
-    <thead class="thead">
-        <tr>
-            <th scope="col">Full Name</th>
-            <th scope="col">Contact Number</th>
-            <th scope="col">License ID</th>
-            <th scope="col">Status</th>
-            <th scope="col">Salary</th>
-            <th colspan="2">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let driver of drivers">
-            <td>{{driver.firstname }}{{driver.lastname}}</td>
-            <td>{{driver.contact_number}}</td>
-            <td>{{driver.license}}</td>
-            <td>{{driver.status}}</td>
-            <td>{{driver.salary}}</td>
-            <td>
-                <button (click) = "UpdateDriver(driver.id)" class="btn btn-primary">Update</button>
-            </td>
-            <td><button (click)="deleteDriver(driver.id)" class="btn btn-danger">Delete</button></td>
-        </tr>
-    </tbody>
-</table>

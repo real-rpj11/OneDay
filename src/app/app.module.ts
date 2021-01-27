@@ -18,10 +18,15 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { BusesComponent } from './admin/buses/buses.component';
 import { DriversComponent } from './admin/drivers/drivers.component';
 import { UserProfileComponent } from './admin/user-profile/user-profile.component';
-import { AddDriverComponent } from './admin/add-driver/add-driver.component';
-import { AddBusComponent } from './admin/add-bus/add-bus.component';
 import { UpdateBusComponent } from './admin/update-bus/update-bus.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatIconModule} from '@angular/material/icon';
+import { BusSpecsComponent } from './admin/bus-specs/bus-specs.component';
+import { UpdateUserComponent } from './admin/update-user/update-user.component';
+import { UpdateDriverComponent } from './admin/update-driver/update-driver.component';
+// import {MatIconModule} from '@angular/material/icon';
+
+
 
 
 
@@ -41,9 +46,10 @@ import { UpdateBusComponent } from './admin/update-bus/update-bus.component';
     BusesComponent,
     DriversComponent,
     UserProfileComponent,
-    AddDriverComponent,
-    AddBusComponent,
     UpdateBusComponent,
+    BusSpecsComponent,
+    UpdateUserComponent,
+    UpdateDriverComponent,
   
   ],
   imports: [
@@ -52,6 +58,7 @@ import { UpdateBusComponent } from './admin/update-bus/update-bus.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     // MatIconModule
   ],
   providers: [],

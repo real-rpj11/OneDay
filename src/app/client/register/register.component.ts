@@ -37,22 +37,9 @@ export class RegisterComponent implements OnInit {
   submit = false
 
   onSubmit() {
-    // alert(JSON.stringify(this.form.value));
-    console.log(this.form.value);
-    this.submit = true
-    this.loading = true 
-
-    if (this.form.invalid){
-    this.loading = false
-    return;
-    }
-    /**
-     * axios [post, get, put, delete ]
-     * axios.post(url, data).then(res=>{}).catch(err=>{})
-     * axios.get(url).then(res=>{}).catch(err=>{})
-     * axios.put(url, data).then(res=>{}).catch(err=>{})
-     */
+    document.getElementById('spinner').style.display = "block";
     axios.post("https://btal-ride.herokuapp.com/api/client/register", this.form.value).then(res=>{
+    document.getElementById('spinner').style.display = "none";
        this.router.navigate(['userhome']);
         }).catch(err=>{
             console.log(err)

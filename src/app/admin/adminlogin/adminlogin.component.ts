@@ -26,21 +26,10 @@ export class AdminloginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.form.value);
-    /**
-     * axios [post, get, put, delete ]
-     * axios.post(url, data).then(res=>{}).catch(err=>{})
-     * axios.get(url).then(res=>{}).catch(err=>{})
-     * axios.put(url, data).then(res=>{}).catch(err=>{})
-     * axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
-     */
-    
+    document.getElementById('spinner').style.display = "block";
     axios.post("https://btal-ride.herokuapp.com/api/admin/login", this.form.value).then(res => {
-      return this.router.navigate(['/admin/dashboard']);
-      /**
-       * token => res.data.token
-       * localStorage.setItem('token', res.data.token)
-       */
+    document.getElementById('spinner').style.display ="none";
+      return this.router.navigate(['/admin']);
     }).catch(err => {
       console.log(err)
     })

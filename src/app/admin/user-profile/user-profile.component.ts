@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProfile } from '../../services/models';
 import { UsersService } from 'src/app/services/users.service';
-
+import { Router } from '@angular/router';
+import axios from 'axios';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,7 +15,8 @@ export class UserProfileComponent implements OnInit {
 
 
   constructor(
-    private userService: UsersService 
+    private userService: UsersService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -27,9 +29,16 @@ export class UserProfileComponent implements OnInit {
       console.log(users);
     })
   }
+  update(id){
+    this.router.navigate(['/admin/update-user/'+id]);
+  }
 
-  deleteUser(user: UserProfile){
-    this.users.splice(this.users.indexOf(user), 1);
+  deleteUser(id){
+    axios.delete("https://btal-ride.herokuapp.com/api/admin/client/"+id).then(res => {
+      return this.router.navigate(['/admin']);
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
 }

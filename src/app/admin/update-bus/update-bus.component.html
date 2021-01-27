@@ -1,46 +1,46 @@
 <div class="card" style="width: 20%;">
     <div class="card-body">
-<form name="form" [formGroup]="form" (ngSubmit)="form.valid && updateBus()">
-    <div class="form-group ">
-        <label for="bus_name">Bus Name</label>
-        <input type="text" class="form-control" formControlName="bus_name" required>
-        <div class="invalid-feedback">
-            <div>Bus Name is required</div>
-        </div>
+        <form name="form" [formGroup]="form" (ngSubmit)="form.valid && updateBus()">
+            <div class="form-group ">
+                <label for="bus_name">Bus Name</label>
+                <input type="text" class="form-control" formControlName="bus_name" required>
+                <div class="invalid-feedback">
+                    <div>Bus Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" formControlName="description">
+                <div *ngIf="form.get('description').touched && form.get('description').invalid" class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" formControlName="price">
+                <div *ngIf="form.get('price').touched && form.get('price').invalid" class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="img_url">Image Url</label>
+                <input type="text" class="form-control" formControlName="img_url">
+                <div *ngIf="form.get('img_url').touched && form.get('img_url').invalid" class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="number_of_seat">Number of Seats</label>
+                <input type="text" class="form-control" formControlName="number_of_seat">
+                <div *ngIf="form.get('number_of_seat').touched && form.get('number_of_seat').invalid" class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" class="form-control" formControlName="status">
+                <div *ngIf="form.get('status').touched && form.get('status').invalid" class="invalid-feedback">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary" [disabled]="!form.valid">Update Bus</button>
+            <br>
+            <a type="button" class="btn btn-secondary" routerLink="/admin/buses">Cancel</a>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" formControlName="description" >
-        <div *ngIf="form.get('description').touched && form.get('description').invalid" class="invalid-feedback">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="price">Price</label>
-        <input type="text" class="form-control" formControlName="price" >
-        <div *ngIf="form.get('price').touched && form.get('price').invalid" class="invalid-feedback">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="img_url">Image Url</label>
-        <input type="text" class="form-control" formControlName="img_url">
-        <div *ngIf="form.get('img_url').touched && form.get('img_url').invalid" class="invalid-feedback">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="number_of_seat">Number of Seats</label>
-        <input type="text" class="form-control" formControlName="number_of_seat" >
-        <div *ngIf="form.get('number_of_seat').touched && form.get('number_of_seat').invalid" class="invalid-feedback">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="status">Status</label>
-        <input type="text" class="form-control" formControlName="status" >
-        <div *ngIf="form.get('status').touched && form.get('status').invalid" class="invalid-feedback">
-        </div>
-    </div>
-    <button type="submit" class="btn btn-block btn-primary" [disabled]="!form.valid">Update Bus</button>
-    <br>
-    <a type="button" class="btn btn-secondary" routerLink="/admin/buses">Cancel</a>
-</form>
-</div>
 </div>
